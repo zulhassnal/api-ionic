@@ -15,7 +15,11 @@ class ListController extends Controller
      */
     public function index()
     {
-        $list = DB::table('list_models')->get();
+        $data = array();
+		$list = DB::table('list_models')->get();
+		$list2 = DB::table('another_lists')->get();
+		$data['list1'] = $list;
+		$data['list2'] = $list2;
 
         return response()->json($list);
     }

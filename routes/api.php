@@ -20,3 +20,4 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 
 Route::get('list', 'ListController@index');
 Route::post('login', 'ApiController@login');
+Route::get('quotes', 'ApiController@quotes');

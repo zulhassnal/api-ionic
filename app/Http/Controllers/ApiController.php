@@ -28,4 +28,13 @@ class ApiController extends Controller
             return response()->json($userData);
         }
 	}
+	
+	public function quotes(Request $request){
+		$list = DB::table('quotes')->select('id','quotes', 'author', 'category')
+		->where('author', '!=' , '')
+		->limit(100)
+		->groupBy('author')
+		->get();
+		return response()->json($list);
+	}
 }
